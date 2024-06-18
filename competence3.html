@@ -33,48 +33,7 @@
         <section>
             <h2>Projets liés à la gestion des services réseaux</h2>
 
-            <h3 onclick="toggleProject('sae203')" style="cursor: pointer;">Installation de services réseau (cliquer pour dérouler)</h3>
-            <div id="sae203" style="display: none;">
-                <p>Cette SAÉ vise à installer et configurer un serveur web avec une authentification sécurisé.</p>
-                <embed src="sujets/___TP_SAE_203_STUDENT.pdf" type="application/pdf" width="100%" height="500px" />
-
-                <h4>Langages et outils utilisés</h4>
-                <ul>
-                    <li><strong>Machine virtuelle sur Linux</strong> : Pour l'environnement serveur.</li>
-                    <li><strong>Apache</strong> : Serveur web.</li>
-                    <li><strong>MySQL</strong> : Système de gestion de base de données.</li>
-                    <li><strong>PHP</strong> : Langage de script côté serveur.</li>
-                </ul>
-
-                <h4>Description du projet</h4>
-                <p>Le projet consistait à installer et configurer un serveur web complet avec Apache, MySQL et PHP. Voici quelques-unes des tâches réalisées :</p>
-                <ul>
-                    <li>Installation et configuration du serveur Apache</li>
-                    <li>Configuration de la base de données MySQL</li>
-                    <li>Intégration de PHP pour le traitement dynamique des pages web</li>
-                </ul>
-
-                <h4>Exemple de configuration Apache</h4>
-                <pre><code>
-# Chargement des modules nécessaires
-LoadModule php7_module modules/libphp7.so
-
-# Configuration de la racine des documents
-DocumentRoot "/var/www/html"
-<Directory "/var/www/html">
-    Options Indexes FollowSymLinks
-    AllowOverride All
-    Require all granted
-</Directory>
-                </code></pre>
-
-                <h4>Lien vers les fichiers de configuration</h4>
-                <p>
-                    <a class="site-link" href="path/to/configuration/files.zip" download>Télécharger les fichiers de configuration</a>
-                </p>
-            </div>
-
-            <div style="border-top: 2px solid #e74c3c; margin: 30px 0;"></div>
+            
 
             <h3 onclick="toggleProject('sae103')" style="cursor: pointer;">Automatisation de scripts PHP avec Docker (cliquer pour dérouler)</h3>
             <div id="sae103" style="display: none;">
@@ -99,28 +58,85 @@ DocumentRoot "/var/www/html"
 
                 <h4>Exemple de script PHP</h4>
                 <pre><code>
-&lt;?php
-require 'vendor/autoload.php';
-
-use Spatie\PdfToText\Pdf;
-use League\CommonMark\CommonMarkConverter;
-
-$markdown = file_get_contents('example.md');
-
-$converter = new CommonMarkConverter();
-$html = $converter->convertToHtml($markdown);
-
-$pdf = new Pdf('/usr/local/bin/pdftotext');
-$pdf->setPdf($html);
-$pdf->saveAs('output.pdf');
-?>
+                } else if (substr($ligne, 0, 1) === '#') {
+                    // Ajoute un en-tête de niveau correspondant au nombre de '#'
+                    $headerLevel = substr_count($ligne, '#');
+                    $html .= '<h' . $headerLevel . '>';
+                    $html .= trim(substr($ligne, $headerLevel + 1));
+                    if ($headerLevel > 0) {
+                        $html .= '</h' . $headerLevel . '>';
+                    }
+            
+            
+                    // Remplace le [texte](lien) en HTML
+                } else if (preg_match('/^\[(.*?)\]\((.*?)\)$/', $ligne, $url)) {
+                     $html .= '<a href="' . $url[2] . '">' . $url[1] . '</a>';
+            
+            
+                    // Ajoute du texte en italique
+                } else if (preg_match('/\*([^*]+)\*/', $ligne, $italique)) {
+                    $html .= '<em>' . $italique[1] . '</em>';
+            
+            
+                    // Ajoute du texte en gras
+                } else if (preg_match('/\*\*([^*]+)\*\*/', $ligne, $gras)) {
+                    $html .= '<strong>' . $gras[1] . '</strong>';
+                } 
+            }
                 </code></pre>
 
                 <h4>Lien vers le projet complet</h4>
                 <p>
-                    <a class="site-link" href="https://github.com/votre-utilisateur/markdown-to-pdf" target="_blank">Voir le projet sur GitHub</a>
+                    <a class="site-link" href="https://github.com/AdrienPerou1/markdown2pdf" target="_blank">Voir le projet sur GitHub</a>
                 </p>
             </div>
+
+            <div style="border-top: 2px solid #e74c3c; margin: 30px 0;"></div>
+
+
+            <h3 onclick="toggleProject('sae203')" style="cursor: pointer;">Installation de services réseau (cliquer pour dérouler)</h3>
+            <div id="sae203" style="display: none;">
+                <p>Cette SAÉ vise à installer et configurer un serveur web avec une authentification sécurisé.</p>
+                <embed src="sujets/___TP_SAE_203_STUDENT.pdf" type="application/pdf" width="100%" height="500px" />
+
+                <h4>Langages et outils utilisés</h4>
+                <ul>
+                    <li><strong>Machine virtuelle sur Linux</strong> : Pour l'environnement serveur.</li>
+                    <li><strong>Apache</strong> : Serveur web.</li>
+                    <li><strong>MySQL</strong> : Système de gestion de base de données.</li>
+                    <li><strong>PHP</strong> : Langage de script côté serveur.</li>
+                </ul>
+
+                <h4>Description du projet</h4>
+                <p>Le projet consistait à installer et configurer un serveur web complet avec Apache, MySQL et PHP. Voici quelques-unes des tâches réalisées :</p>
+                <ul>
+                    <li>Installation et configuration du serveur Apache</li>
+                    <li>Configuration de la base de données MySQL</li>
+                    <li>Intégration de PHP pour le traitement dynamique des pages web</li>
+                </ul>
+
+                <h4>Exemple de configuration Apache</h4>
+                <pre><code>
+# Chargement des modules nécessaires
+htpasswd -c /etc/apache2/.htpasswd admin
+
+# Configuration de la racine des documents
+DocumentRoot "/var/www/html"
+<Directory "/var/www/html/private">
+    AuthType Basic
+    AuthName "Espace Privé : Veuillez saisir votre mot de passe"
+    AuthUserFile /etc/apache2/.htpasswd
+    Require valid-user
+</Directory>
+                </code></pre>
+
+                <h4>Lien vers les fichiers de configuration</h4>
+                <p>
+                    <a class="site-link" href="https://github.com/AdrienPerou1/configuration_server_web" download>Voir le projet sur GitHub</a>
+                </p>
+            </div>
+
+            
         </section>
     </main>
     <footer>
