@@ -1,0 +1,82 @@
+// scripts.js
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Animation de la section au survol
+    const sections = document.querySelectorAll('section');
+
+    sections.forEach(section => {
+        section.addEventListener('mouseover', () => {
+            section.style.transform = 'scale(1.05)';
+        });
+        section.addEventListener('mouseout', () => {
+            section.style.transform = 'scale(1)';
+        });
+    });
+
+    // Animation de la navigation au clic
+    const navLinks = document.querySelectorAll('nav ul li a');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+            if (link.getAttribute('href').startsWith('#')) {
+                event.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+
+                window.scrollTo({
+                    top: targetSection.offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const profilePhoto = document.querySelector('.profile-photo');
+        
+        profilePhoto.addEventListener('mouseover', () => {
+            profilePhoto.style.transform = 'scale(1.1)';
+            profilePhoto.style.transition = 'transform 0.5s';
+        });
+    
+        profilePhoto.addEventListener('mouseout', () => {
+            profilePhoto.style.transform = 'scale(1)';
+            profilePhoto.style.transition = 'transform 0.5s';
+        });
+    });
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        const profilePhoto = document.querySelector('.profile-photo');
+        const projectPhoto = document.querySelector('.project-photo');
+        
+        if (profilePhoto) {
+            profilePhoto.addEventListener('mouseover', () => {
+                profilePhoto.style.transform = 'scale(1.1)';
+                profilePhoto.style.transition = 'transform 0.5s';
+            });
+    
+            profilePhoto.addEventListener('mouseout', () => {
+                profilePhoto.style.transform = 'scale(1)';
+                profilePhoto.style.transition = 'transform 0.5s';
+            });
+        }
+    
+        if (projectPhoto) {
+            projectPhoto.addEventListener('mouseover', () => {
+                projectPhoto.style.transform = 'scale(1.1)';
+                projectPhoto.style.transition = 'transform 0.5s';
+            });
+    
+            projectPhoto.addEventListener('mouseout', () => {
+                projectPhoto.style.transform = 'scale(1)';
+                projectPhoto.style.transition = 'transform 0.5s';
+            });
+        }
+    });
+
+    
+    
+
+    console.log('Animations et interactions prêtes.');
+
+});

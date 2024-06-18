@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compétence 5 - Création graphique et développement web</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function toggleProject(projectId) {
+            var project = document.getElementById(projectId);
+            if (project.style.display === "none") {
+                project.style.display = "block";
+            } else {
+                project.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<nav class="nav-competence">
+    <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="diplomes.html">Diplômes</a></li>
+        <li><a href="competences.html">Compétences</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="projet-externe.html">Projet Externe</a></li>
+    </ul>
+</nav>
+<body>
+    <header>
+        <h1>Compétence 5 : Création graphique et développement web</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Projet : Création graphique et développement du site web "Tabas'KHO"</h2>
+
+            <h3 onclick="toggleProject('charteGraphique')" style="cursor: pointer;">Création d'une charte graphique avec Canva (cliquer pour dérouler)</h3>
+            <div id="charteGraphique" style="display: none;">
+                <p>Cette partie du projet consistait à créer une charte graphique complète pour le site web de streaming "Tabas'KHO" en utilisant Canva.</p>
+                <embed src="path/to/charte_graphique.pdf" type="application/pdf" width="100%" height="500px" />
+
+                <h4>Outils utilisés</h4>
+                <ul>
+                    <li><strong>Canva</strong> : Pour la création de la charte graphique.</li>
+                </ul>
+
+                <h4>Description de la charte graphique</h4>
+                <p>Les éléments inclus dans la charte graphique sont :</p>
+                <ul>
+                    <li>Logo de l'entreprise</li>
+                    <li>Palette de couleurs</li>
+                    <li>Typographie</li>
+                    <li>Icônes et images</li>
+                </ul>
+
+                <h4>Lien vers la charte graphique complète</h4>
+                <p>
+                    <a class="site-link" href="path/to/charte_graphique_complete.pdf" download>Télécharger la charte graphique</a>
+                </p>
+            </div>
+
+            <div style="border-top: 2px solid #3498db; margin: 30px 0;"></div>
+
+            <h3 onclick="toggleProject('maquetteFigma')" style="cursor: pointer;">Création d'une maquette de site web avec Figma (cliquer pour dérouler)</h3>
+            <div id="maquetteFigma" style="display: none;">
+                <p>Cette partie du projet consistait à créer une maquette interactive du site web de streaming "Tabas'KHO" en utilisant Figma.</p>
+
+                <h4>Outils utilisés</h4>
+                <ul>
+                    <li><strong>Figma</strong> : Pour la création de la maquette interactive.</li>
+                </ul>
+
+                <h4>Description de la maquette</h4>
+                <p>Les éléments inclus dans la maquette sont :</p>
+                <ul>
+                    <li>Page d'accueil</li>
+                    <li>Page de catalogue des films</li>
+                    <li>Page de détail d'un film</li>
+                    <li>Page de connexion et d'inscription</li>
+                </ul>
+
+                <h4>Maquette pour la série The Walking Dead</h4>
+                <img src="path/to/maquette_image.jpg" alt="Maquette Figma" class="project-photo">
+
+                <h4>Lien vers la maquette interactive</h4>
+                <p>
+                    <a class="site-link" href="https://www.figma.com/file/yourfigmaproject" target="_blank">Voir la maquette sur Figma</a>
+                </p>
+            </div>
+
+            <div style="border-top: 2px solid #3498db; margin: 30px 0;"></div>
+
+            <h3 onclick="toggleProject('pageHTMLCSS')" style="cursor: pointer;">Développement d'une page HTML/CSS pour le site "Tabas'KHO" (cliquer pour dérouler)</h3>
+            <div id="pageHTMLCSS" style="display: none;">
+                <p>Cette partie du projet consistait à développer une page HTML/CSS pour le site web de streaming "Tabas'KHO" en utilisant les normes de la charte graphique et de la maquette.</p>
+
+                <h4>Outils et langages utilisés</h4>
+                <ul>
+                    <li><strong>HTML</strong> : Pour la structure du site web.</li>
+                    <li><strong>CSS</strong> : Pour le style et la mise en page.</li>
+                </ul>
+
+                <h4>Description du développement web</h4>
+                <p>Le projet incluait les éléments suivants :</p>
+                <ul>
+                    <li>Structure de la page d'accueil</li>
+                    <li>Style conforme à la charte graphique</li>
+                    <li>Utilisation des classes et identifiants CSS pour la mise en page</li>
+                </ul>
+
+                <h4>Lien vers le projet complet</h4>
+                <p>
+                    <a class="site-link" href="path/to/tabaskho_project.zip" download>Télécharger le projet complet</a>
+                </p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Pérou Adrien. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

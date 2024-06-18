@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compétence 2 - Projets de résolution</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function toggleProject(projectId) {
+            var project = document.getElementById(projectId);
+            if (project.style.display === "none") {
+                project.style.display = "block";
+            } else {
+                project.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<nav class = "nav-competence">
+    <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="diplomes.html">Diplômes</a></li>
+        <li><a href="competences.html">Compétences</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="projet-externe.html">Projet Externe</a></li>
+    </ul>
+</nav>
+<body>
+    <header>
+        <h1>Compétence 2 : Résolution de problèmes</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Projets de résolution</h2>
+
+            <h3 onclick="toggleProject('sudokuProject')" style="cursor: pointer;">Solveur de Sudoku (cliquer pour dérouler)</h3>
+            <div id="sudokuProject" style="display: none;">
+                <p>Ce projet consiste à développer un solveur de Sudoku en langage C. Le programme permet de charger, afficher, et résoudre une grille de Sudoku.</p>
+                
+                <h4>Langages et outils utilisés</h4>
+                <ul>
+                    <li><strong>Langage C</strong> : Pour le développement du programme.</li>
+                    <li><strong>Doxygen</strong> : Pour la génération de la documentation du code.</li>
+                </ul>
+
+                <h4>Description du programme</h4>
+                <p>Le programme utilise les concepts fondamentaux de la programmation en C, notamment :</p>
+                <ul>
+                    <li>Définition de constantes et de types personnalisés</li>
+                    <li>Utilisation de tableaux multidimensionnels pour représenter la grille de Sudoku</li>
+                    <li>Fonctions pour charger, afficher, et vérifier la validité des valeurs insérées dans la grille</li>
+                    <li>Utilisation de la bibliothèque standard pour la gestion des entrées/sorties</li>
+                </ul>
+
+                <h4>Exemple de code</h4>
+                <pre><code>
+#include &lt;stdbool.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+
+#define N 3
+#define TAILLE (N * N)
+
+typedef struct {
+    int valeur;
+    bool candidats[TAILLE + 1];
+    int nbCandidats;
+} tCase2;
+typedef tCase2 tGrille[TAILLE][TAILLE];
+
+void ajouterCandidat(tCase2 *laCase, int val, int *candidatsAjoutes);
+void retirerCandidat(tCase2 laCase, int val, int *candidatsElimines);
+int chargerGrille(tGrille g, char nomFichier[30]);
+void initialiserCandidats(tGrille g);
+void afficherGrille(tGrille g);
+void nouveauCandidat(tGrille g, int i, int j, int *totalCandidatsAjoutes);
+void retirerTousCandidats(tGrille g, int i, int j, int val, int *candidatsElimines);
+
+int main() {
+    // ... code du programme principal
+}
+
+// ... autres fonctions
+                </code></pre>
+
+                <h4>Lien vers le projet complet</h4>
+                <p>
+                    <a class="site-link" href="https://github.com/votre-utilisateur/sudoku" target="_blank">Voir le projet sur GitHub</a>
+                </p>
+            </div>
+
+
+            <div style="border-top: 2px solid #e74c3c; margin: 30px 0;"></div>
+            
+            <h3 onclick="toggleProject('eightQueensProject')" style="cursor: pointer;">Solveur du problème des huit reines (cliquer pour dérouler)</h3>
+            <div id="eightQueensProject" style="display: none;">
+                <p>Ce projet consiste à développer un solveur automatique du problème des huit reines en Python. Le programme utilise deux algorithmes : le backtracking et une méthode basée sur les symétries, rotations et réflexions.</p>
+
+                <h4>Langages et outils utilisés</h4>
+                <ul>
+                    <li><strong>Python</strong> : Pour le développement du programme.</li>
+                </ul>
+
+                <h4>Description du programme</h4>
+                <p>Le programme utilise les concepts fondamentaux de la programmation en Python, notamment :</p>
+                <ul>
+                    <li>Utilisation de fonctions pour vérifier les contraintes du problème des huit reines</li>
+                    <li>Méthode de backtracking pour trouver toutes les solutions possibles</li>
+                    <li>Algorithme exploitant les symétries, rotations et réflexions pour optimiser la recherche de solutions</li>
+                </ul>
+
+                <h4>Exemple de code</h4>
+                <pre><code>
+from random import randint
+import sym_rotation_reflexion
+import time
+
+n = 8
+
+def dansLigne(grille, ligne):
+    for i in range(n):
+        if grille[ligne][i] == 1:
+            return False
+    return True
+
+def dansDiagonale(grille, ligne, colonne):
+    # ... autres vérifications
+    return True
+
+def dansColonne(grille, colonne):
+    for i in range(n):
+        if grille[i][colonne] == 1:
+            return False
+    return True
+
+def afficherGrille(grille, n):
+    print("Grille :")
+    for i in range(n):
+        for j in range(n):
+            if grille[i][j] == 1:
+                print("Q", end=" ")
+            else:
+                print("_", end=" ")
+        print()
+    print()
+
+def backtracking2(grille, numeroReine=1, numeroCase=0):
+    # ... code du backtracking
+    return 0
+
+# ... autres fonctions et programme principal
+                </code></pre>
+
+                <h4>Lien vers le projet complet</h4>
+                <p>
+                    <a class="site-link" href="https://github.com/votre-utilisateur/eight-queens" target="_blank">Voir le projet sur GitHub</a>
+                </p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Pérou Adrien. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

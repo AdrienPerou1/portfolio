@@ -1,0 +1,166 @@
+body {
+    background: linear-gradient(135deg, #333, #000);
+    color: #ddd;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #222;
+    color: #ddd;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.nav-competence {
+    position: fixed;
+    width: 100%;
+    z-index: 1000; 
+}
+
+nav ul {
+    background-color: #222;
+    list-style: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #ddd;
+    display: inline-block;
+    border-radius: 5px; /* Add rounded corners */
+    padding: 10px 15px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    border-radius: 5px;
+    background-color: #444;
+    color: #fff;
+}
+
+main {
+    
+    padding: 20px;
+    background-color: #1a1a1a;
+    color: #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #e74c3c;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    background: #444;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+ul ul {
+    margin: 10px 0 10px 20px;
+}
+
+ul ul li {
+    background: #555;
+}
+
+.objective-list {
+    max-width: 200px;
+}
+
+.competences-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.competence-circle {
+    width: 150px;
+    height: 150px;
+    background-color: #555;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ddd;
+    font-size: 18px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.competence-circle:hover {
+    background-color: #e74c3c;
+    transform: scale(1.1);
+}
+
+.competence-circle span {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    background-color: #444;
+    color: #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+.competence-circle:hover span {
+    display: block;
+}
+
+a.site-link {
+    color: #e74c3c;
+    text-decoration: none;
+}
+
+a.site-link:hover {
+    color: #e98b77;
+}
+
+footer {
+    background-color: #222;
+    color: #ddd;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-photo {
+    border-radius: 50%;
+    float: left;
+    margin-right: 20px;
+    width: 150px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #444;
+    margin: 20px 0;
+}

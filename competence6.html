@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compétence 6 - Analyse d'entreprise et création d'évènement</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function toggleProject(projectId) {
+            var project = document.getElementById(projectId);
+            if (project.style.display === "none") {
+                project.style.display = "block";
+            } else {
+                project.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<nav class="nav-competence">
+    <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="diplomes.html">Diplômes</a></li>
+        <li><a href="competences.html">Compétences</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="projet-externe.html">Projet Externe</a></li>
+    </ul>
+</nav>
+<body>
+    <header>
+        <h1>Compétence 6 : Analyse d'entreprise et création d'évènement</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Présentation d'une entreprise et création d'un évènement de Team Building</h2>
+
+            <h3 onclick="toggleProject('analyseEntreprise')" style="cursor: pointer;">Présentation de l'entreprise Danone et diagnostic stratégique (cliquer pour dérouler)</h3>
+            <div id="analyseEntreprise" style="display: none;">
+                <p>Ce projet consistait à réaliser une analyse détaillée de l'entreprise Danone, en incluant la présentation de ses initiatives de Responsabilité Sociétale des Entreprises (RSE), ainsi qu'un diagnostic externe utilisant les forces de Porter et la méthode PESTEL.</p>
+
+                <h4>Responsabilité Sociétale des Entreprises (RSE)</h4>
+                <ul>
+                    <li>Engagements environnementaux : Réduction des émissions de CO2, gestion durable des ressources en eau, etc.</li>
+                    <li>Engagements sociaux : Amélioration des conditions de travail, initiatives de développement communautaire, etc.</li>
+                    <li>Engagements économiques : Pratiques de commerce équitable, innovation durable, etc.</li>
+                </ul>
+
+                <h4>Diagnostic externe avec les forces de Porter</h4>
+                <ul>
+                    <li>Intensité de la concurrence</li>
+                    <li>Menace des nouveaux entrants</li>
+                    <li>Menace des produits de substitution</li>
+                    <li>Pouvoir de négociation des fournisseurs</li>
+                    <li>Pouvoir de négociation des clients</li>
+                </ul>
+
+                <h4>Méthode PESTEL</h4>
+                <ul>
+                    <li>Politique : Réglementations gouvernementales, stabilité politique</li>
+                    <li>Économique : Taux de croissance économique, inflation</li>
+                    <li>Sociologique : Tendances démographiques, comportements des consommateurs</li>
+                    <li>Technologique : Innovations, avancées technologiques</li>
+                    <li>Environnemental : Régulations environnementales, impact écologique</li>
+                    <li>Légal : Lois du travail, législations spécifiques à l'industrie</li>
+                </ul>
+
+                <h4>Document complet</h4>
+                <embed src="path/to/analyse_danone.pdf" type="application/pdf" width="100%" height="500px" />
+
+                <p>
+                    <a class="site-link" href="path/to/analyse_danone_complete.pdf" download>Télécharger le document complet</a>
+                </p>
+            </div>
+
+            <div style="border-top: 2px solid #3498db; margin: 30px 0;"></div>
+
+            <h3 onclick="toggleProject('teamBuildingEvent')" style="cursor: pointer;">Création d'un évènement de Team Building (cliquer pour dérouler)</h3>
+            <div id="teamBuildingEvent" style="display: none;">
+                <p>Ce projet consistait à organiser un évènement de Team Building, le "St'Bri Express", combinant une course d'orientation, Pékin Express et une chasse au trésor. Le projet incluait également la création d'un flyer promotionnel et d'un mini film d'une minute pour expliquer l'évènement.</p>
+
+                <h4>Flyer promotionnel</h4>
+                <img src="path/to/flyer.jpg" alt="Flyer St'Bri Express" class="project-photo">
+
+                <h4>Mini film explicatif</h4>
+                <video width="100%" height="500px" controls>
+                    <source src="path/to/mini_film.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture des vidéos.
+                </video>
+
+                <h4>Description de l'évènement</h4>
+                <p>Le St'Bri Express est un évènement conçu pour renforcer la cohésion d'équipe et l'esprit de collaboration. Les participants sont regroupés en équipes et doivent naviguer à travers une série de défis et d'énigmes dans un environnement compétitif mais amusant.</p>
+                <ul>
+                    <li>Course d'orientation : Les équipes doivent trouver des balises dispersées dans une zone définie.</li>
+                    <li>Pékin Express : Des défis inspirés du célèbre jeu télévisé, demandant rapidité et stratégie.</li>
+                    <li>Chasse au trésor : Résolution d'énigmes et collecte d'indices pour trouver un trésor caché.</li>
+                </ul>
+
+                <h4>Lien vers les ressources de l'évènement</h4>
+                <p>
+                    <a class="site-link" href="path/to/team_building_event.zip" download>Télécharger toutes les ressources de l'évènement</a>
+                </p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Pérou Adrien. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

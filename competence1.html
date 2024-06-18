@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compétence 1 - Réaliser</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class = "nav-competence">
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="diplomes.html">Diplômes</a></li>
+            <li><a href="competences.html">Compétences</a></li>
+            <li><a href="cv.html">CV</a></li>
+            <li><a href="projet-externe.html">Projet Externe</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Compétence 1 : Réalisation d'un jeu</h1>
+    </header>
+    
+    <main>
+        <section>
+            <h2>Développement d'un Sudoku en C</h2>
+            <p>Ce projet consiste à développer un programme de Sudoku en langage C. Le programme permet de charger, afficher, et résoudre une grille de Sudoku.</p>
+            
+            <h3>Langages et outils utilisés</h3>
+            <ul>
+                <li><strong>Langage C</strong> : Pour le développement du programme.</li>
+                <li><strong>Doxygen</strong> : Pour la génération de la documentation du code.</li>
+            </ul>
+
+            <h3>Description du programme</h3>
+            <p>Le programme utilise les concepts fondamentaux de la programmation en C, notamment :</p>
+            <ul>
+                <li>Définition de constantes et de types personnalisés</li>
+                <li>Utilisation de tableaux multidimensionnels pour représenter la grille de Sudoku</li>
+                <li>Fonctions pour charger, afficher, et vérifier la validité des valeurs insérées dans la grille</li>
+                <li>Utilisation de la bibliothèque standard pour la gestion des entrées/sorties</li>
+            </ul>
+
+            <h3>Exemple de code</h3>
+            <pre>
+<code>
+
+    /**
+    *
+    * \fn dansBloc(tGrille g, int debutLigneBloc, int debutColonneBloc, int valeur)
+    *
+    * \brief Fonction qui indique si la valeur est dans le bloc.
+    *
+    * \param g : La grille du Sudoku
+    * \param debutLigneBloc : Première ligne du bloc
+    * \param debutColonneBloc : Première colonne du bloc
+    * \param valeur : Valeur à regarder
+    *
+    * \return true si la valeur est dans le bloc, false sinon.
+    *
+    * Permet de savoir si la valeur est positionné dans le bloc.
+    *
+    */
+    
+    bool dansBloc(tGrille g, int debutLigneBloc, int debutColonneBloc, int valeur) {
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                if (g[debutLigneBloc + i][debutColonneBloc + j] == valeur) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
+    /**
+    *
+    * \fn possible(tGrille g, int ligne, int colonne, int valeur)
+    *
+    * \brief Fonction qui indique si la valeur est positionnable.
+    *
+    * \param g : La grille du Sudoku
+    * \param debutLigneBloc : ligne de la valeur à insérer
+    * \param debutColonneBloc : colonne de la valeur à insérer
+    * \param valeur : Valeur à regarder
+    *
+    * \return true si la valeur est possible, false sinon.
+    *
+    * Indique si la valeur n'est pas déjà positionné dans la ligne, la colonne et le bloc.
+    *
+    */
+    
+    bool possible(tGrille g, int ligne, int colonne, int valeur) {
+        for (int i = 0; i < TAILLE; i++) {
+            if (g[ligne][i] == valeur)  //Vérifie si la ligne possède déjà la valeur
+            {
+                return false;
+            }
+        }
+        for (int j = 0; j < TAILLE; j++) {
+            if (g[j][colonne] == valeur) //Vérifie si la colonne possède déjà la valeur
+            {
+                return false;
+            }
+        }
+    
+        int debutLigneBloc = (ligne / N) * N; //Permet de savoir dans quel bloc est la première ligne grâce à la valeur du diviseur
+        int debutColonneBloc = (colonne / N) * N; //Permet de savoir dans quel bloc est la première colonne grâce à la valeur du diviseur
+    
+    /**
+     * \see La fonction dansBloc
+    */
+        return !dansBloc(g, debutLigneBloc, debutColonneBloc, valeur); 
+    }
+...
+</code>
+            </pre>
+
+            <h3>Lien vers le projet complet</h3>
+            <p>
+                <a class="site-link" href="https://github.com/AdrienPerou1/sudoku" target="_blank">Voir le projet sur GitHub</a>
+            </p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Pérou Adrien. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

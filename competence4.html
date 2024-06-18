@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compétence 4 - Gestion de données</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function toggleProject(projectId) {
+            var project = document.getElementById(projectId);
+            if (project.style.display === "none") {
+                project.style.display = "block";
+            } else {
+                project.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<nav class="nav-competence">
+    <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="diplomes.html">Diplômes</a></li>
+        <li><a href="competences.html">Compétences</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="projet-externe.html">Projet Externe</a></li>
+    </ul>
+</nav>
+<body>
+    <header>
+        <h1>Compétence 4 : Gestion de données</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Projets liés à la gestion de données</h2>
+
+            <h3 onclick="toggleProject('sae1')" style="cursor: pointer;">Création d'un diagramme UML et base de données PostgreSQL (cliquer pour dérouler)</h3>
+            <div id="sae1" style="display: none;">
+                <p>Cette SAÉ consistait à créer un diagramme de classe UML avec Visual Paradigm, puis à implémenter la base de données en PostgreSQL avec SQL Workbench.</p>
+                <embed src="path/to/uml_diagram_project.pdf" type="application/pdf" width="100%" height="500px" />
+
+                <h4>Langages et outils utilisés</h4>
+                <ul>
+                    <li><strong>Visual Paradigm</strong> : Pour la création du diagramme UML.</li>
+                    <li><strong>PostgreSQL</strong> : Système de gestion de base de données.</li>
+                    <li><strong>SQL Workbench</strong> : Pour la gestion et la manipulation de la base de données.</li>
+                </ul>
+
+                <h4>Description du projet</h4>
+                <p>Le projet incluait les étapes suivantes :</p>
+                <ul>
+                    <li>Création d'un diagramme de classe UML détaillant les entités et leurs relations</li>
+                    <li>Implémentation du modèle de données en PostgreSQL</li>
+                </ul>
+
+                <h4>Exemple de script SQL pour la création des tables</h4>
+                <pre><code>
+CREATE TABLE Utilisateur (
+    id SERIAL PRIMARY KEY,
+    nom VARCHAR(50),
+    email VARCHAR(100) UNIQUE NOT NULL
+);
+
+CREATE TABLE Produit (
+    id SERIAL PRIMARY KEY,
+    nom VARCHAR(100),
+    prix DECIMAL
+);
+
+CREATE TABLE Commande (
+    id SERIAL PRIMARY KEY,
+    utilisateur_id INT REFERENCES Utilisateur(id),
+    date_commande DATE
+);
+                </code></pre>
+
+                <h4>Lien vers le projet complet</h4>
+                <p>
+                    <a class="site-link" href="path/to/database_project.zip" download>Télécharger le projet de base de données</a>
+                </p>
+            </div>
+
+            <div style="border-top: 2px solid #3498db; margin: 30px 0;"></div>
+
+            <h3 onclick="toggleProject('sae2')" style="cursor: pointer;">Création de tables SQL et analyse avec Python (cliquer pour dérouler)</h3>
+            <div id="sae2" style="display: none;">
+                <p>Cette SAÉ impliquait la création de tables SQL à partir d'un diagramme UML, le peuplement des tables et l'analyse des statistiques avec Python.</p>
+                <embed src="path/to/sql_analysis_project.pdf" type="application/pdf" width="100%" height="500px" />
+
+                <h4>Langages et outils utilisés</h4>
+                <ul>
+                    <li><strong>SQL</strong> : Pour la création et le peuplement des tables.</li>
+                    <li><strong>Python</strong> : Pour l'analyse des données et les statistiques.</li>
+                </ul>
+
+                <h4>Description du projet</h4>
+                <p>Les tâches réalisées comprenaient :</p>
+                <ul>
+                    <li>Développement du script SQL pour créer les tables et les relations</li>
+                    <li>Peuplement des tables avec des données pertinentes</li>
+                    <li>Utilisation de Python pour analyser les données et générer des statistiques</li>
+                </ul>
+
+                <h4>Exemple de script SQL pour le peuplement des tables</h4>
+                <pre><code>
+INSERT INTO Utilisateur (nom, email) VALUES ('Alice', 'alice@example.com');
+INSERT INTO Utilisateur (nom, email) VALUES ('Bob', 'bob@example.com');
+
+INSERT INTO Produit (nom, prix) VALUES ('Ordinateur', 1000.00);
+INSERT INTO Produit (nom, prix) VALUES ('Souris', 20.00);
+
+INSERT INTO Commande (utilisateur_id, date_commande) VALUES (1, '2024-01-15');
+INSERT INTO Commande (utilisateur_id, date_commande) VALUES (2, '2024-01-20');
+                </code></pre>
+
+                <h4>Exemple de script Python pour l'analyse</h4>
+                <pre><code>
+import psycopg2
+import pandas as pd
+
+# Connexion à la base de données PostgreSQL
+conn = psycopg2.connect(
+    dbname="votre_base_de_donnees",
+    user="votre_utilisateur",
+    password="votre_mot_de_passe",
+    host="localhost",
+    port="5432"
+)
+
+# Requête SQL pour récupérer les données
+query = "SELECT * FROM Commande JOIN Utilisateur ON Commande.utilisateur_id = Utilisateur.id"
+data = pd.read_sql_query(query, conn)
+
+# Analyse des données avec pandas
+statistiques = data.groupby('nom')['date_commande'].count()
+
+print(statistiques)
+                </code></pre>
+
+                <h4>Lien vers le projet complet</h4>
+                <p>
+                    <a class="site-link" href="https://github.com/votre-utilisateur/sql-analysis-python" target="_blank">Voir le projet sur GitHub</a>
+                </p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Pérou Adrien. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compétence 3 - Gestion des services réseaux</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function toggleProject(projectId) {
+            var project = document.getElementById(projectId);
+            if (project.style.display === "none") {
+                project.style.display = "block";
+            } else {
+                project.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<nav class="nav-competence">
+    <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="diplomes.html">Diplômes</a></li>
+        <li><a href="competences.html">Compétences</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="projet-externe.html">Projet Externe</a></li>
+    </ul>
+</nav>
+<body>
+    <header>
+        <h1>Compétence 3 : Gestion des services réseaux</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Projets liés à la gestion des services réseaux</h2>
+
+            <h3 onclick="toggleProject('sae203')" style="cursor: pointer;">Installation de services réseau (cliquer pour dérouler)</h3>
+            <div id="sae203" style="display: none;">
+                <p>Cette SAÉ vise à installer et configurer un serveur web avec une authentification sécurisé.</p>
+                <embed src="sujets/___TP_SAE_203_STUDENT.pdf" type="application/pdf" width="100%" height="500px" />
+
+                <h4>Langages et outils utilisés</h4>
+                <ul>
+                    <li><strong>Machine virtuelle sur Linux</strong> : Pour l'environnement serveur.</li>
+                    <li><strong>Apache</strong> : Serveur web.</li>
+                    <li><strong>MySQL</strong> : Système de gestion de base de données.</li>
+                    <li><strong>PHP</strong> : Langage de script côté serveur.</li>
+                </ul>
+
+                <h4>Description du projet</h4>
+                <p>Le projet consistait à installer et configurer un serveur web complet avec Apache, MySQL et PHP. Voici quelques-unes des tâches réalisées :</p>
+                <ul>
+                    <li>Installation et configuration du serveur Apache</li>
+                    <li>Configuration de la base de données MySQL</li>
+                    <li>Intégration de PHP pour le traitement dynamique des pages web</li>
+                </ul>
+
+                <h4>Exemple de configuration Apache</h4>
+                <pre><code>
+# Chargement des modules nécessaires
+LoadModule php7_module modules/libphp7.so
+
+# Configuration de la racine des documents
+DocumentRoot "/var/www/html"
+<Directory "/var/www/html">
+    Options Indexes FollowSymLinks
+    AllowOverride All
+    Require all granted
+</Directory>
+                </code></pre>
+
+                <h4>Lien vers les fichiers de configuration</h4>
+                <p>
+                    <a class="site-link" href="path/to/configuration/files.zip" download>Télécharger les fichiers de configuration</a>
+                </p>
+            </div>
+
+            <div style="border-top: 2px solid #e74c3c; margin: 30px 0;"></div>
+
+            <h3 onclick="toggleProject('sae103')" style="cursor: pointer;">Automatisation de scripts PHP avec Docker (cliquer pour dérouler)</h3>
+            <div id="sae103" style="display: none;">
+                <p>Cette SAÉ se concentre sur l'automatisation de scripts PHP avec Docker. Le projet impliquait la création d'un script PHP capable de transformer des fichiers Markdown en PDF.</p>
+                <embed src="sujets/SAE_1.03_-_Sujet_v4.pdf" type="application/pdf" width="100%" height="500px" />
+
+                <h4>Langages et outils utilisés</h4>
+                <ul>
+                    <li><strong>PHP</strong> : Pour le développement du script.</li>
+                    <li><strong>Docker</strong> : Pour la conteneurisation du script.</li>
+                </ul>
+
+                <h4>Description du projet</h4>
+                <p>Le projet comprenait plusieurs étapes :</p>
+                <ul>
+                    <li>Développement d'un script PHP pour transformer des fichiers Markdown en PDF</li>
+                    <li>Automatisation du processus de transformation avec Docker</li>
+                </ul>
+
+
+                </code></pre>
+
+                <h4>Exemple de script PHP</h4>
+                <pre><code>
+&lt;?php
+require 'vendor/autoload.php';
+
+use Spatie\PdfToText\Pdf;
+use League\CommonMark\CommonMarkConverter;
+
+$markdown = file_get_contents('example.md');
+
+$converter = new CommonMarkConverter();
+$html = $converter->convertToHtml($markdown);
+
+$pdf = new Pdf('/usr/local/bin/pdftotext');
+$pdf->setPdf($html);
+$pdf->saveAs('output.pdf');
+?>
+                </code></pre>
+
+                <h4>Lien vers le projet complet</h4>
+                <p>
+                    <a class="site-link" href="https://github.com/votre-utilisateur/markdown-to-pdf" target="_blank">Voir le projet sur GitHub</a>
+                </p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Pérou Adrien. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
