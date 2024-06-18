@@ -54,39 +54,50 @@
 
                 <h4>Exemple de code</h4>
                 <pre><code>
-#include &lt;stdbool.h&gt;
-#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;time.h&gt;
-
-#define N 3
-#define TAILLE (N * N)
-
-typedef struct {
-    int valeur;
-    bool candidats[TAILLE + 1];
-    int nbCandidats;
-} tCase2;
-typedef tCase2 tGrille[TAILLE][TAILLE];
-
-void ajouterCandidat(tCase2 *laCase, int val, int *candidatsAjoutes);
-void retirerCandidat(tCase2 laCase, int val, int *candidatsElimines);
-int chargerGrille(tGrille g, char nomFichier[30]);
-void initialiserCandidats(tGrille g);
-void afficherGrille(tGrille g);
-void nouveauCandidat(tGrille g, int i, int j, int *totalCandidatsAjoutes);
-void retirerTousCandidats(tGrille g, int i, int j, int val, int *candidatsElimines);
-
-int main() {
-    // ... code du programme principal
-}
-
-// ... autres fonctions
+                    bool backtracking(tGrille grille, int numeroCase){
+                        int ligne;
+                        int colonne;
+                        bool resultat;
+                        resultat = false;
+                      
+                        //on a traité toutes les cases, la grille est résolue
+                        if (numeroCase == TAILLE * TAILLE){
+                          resultat = true;
+                        }
+                        else{
+                          // On récupère les "coordonnées" de la case
+                          ligne = numeroCase / TAILLE;
+                          colonne = numeroCase % TAILLE;
+                          if (grille[ligne][colonne].valeur != 0) {
+                            // Si la case n’est pas vide, on passe à la suivante
+                            // (appel récursif)
+                            resultat = backtracking(grille, numeroCase+1);
+                          }
+                          else{
+                            for(int valeur = 1; valeur < TAILLE+1; valeur++ ){
+                              if (possible(grille, ligne, colonne, valeur)==true){
+                                // Si la valeur est autorisée on l'inscrit
+                                //dans la case...
+                                grille[ligne][colonne].valeur = valeur;
+                                // ... et on passe à la suivante : appel récursif
+                                // pour voir si ce choix est bon par la suite
+                                if (backtracking(grille,numeroCase+1) == true) {
+                                  resultat = true;
+                                }
+                                else{
+                                  grille[ligne][colonne].valeur = 0;
+                                }
+                              }
+                            }
+                          }
+                        }
+                        return resultat;
+                      }
                 </code></pre>
 
                 <h4>Lien vers le projet complet</h4>
                 <p>
-                    <a class="site-link" href="https://github.com/votre-utilisateur/sudoku" target="_blank">Voir le projet sur GitHub</a>
+                    <a class="site-link" href="https://github.com/AdrienPerou1/solveur_sudoku" target="_blank">Voir le projet sur GitHub</a>
                 </p>
             </div>
 
@@ -112,49 +123,47 @@ int main() {
 
                 <h4>Exemple de code</h4>
                 <pre><code>
-from random import randint
-import sym_rotation_reflexion
-import time
-
-n = 8
-
-def dansLigne(grille, ligne):
-    for i in range(n):
-        if grille[ligne][i] == 1:
-            return False
-    return True
-
-def dansDiagonale(grille, ligne, colonne):
-    # ... autres vérifications
-    return True
-
-def dansColonne(grille, colonne):
-    for i in range(n):
-        if grille[i][colonne] == 1:
-            return False
-    return True
-
-def afficherGrille(grille, n):
-    print("Grille :")
-    for i in range(n):
-        for j in range(n):
-            if grille[i][j] == 1:
-                print("Q", end=" ")
-            else:
-                print("_", end=" ")
-        print()
-    print()
-
-def backtracking2(grille, numeroReine=1, numeroCase=0):
-    # ... code du backtracking
-    return 0
-
-# ... autres fonctions et programme principal
+                    def est_valide(grille, ligne, colonne):
+                    """ Vérifie la ligne est les diagonales de la grille"""
+                    for i in range(ligne):
+                      if grille[i] == colonne or grille[i] - i == colonne - ligne or grille[
+                          i] + i == colonne + ligne:
+                        return False
+                    return True
+                
+                  def placer_reines(grille, ligne):
+                    if ligne == 8:  # Toutes les reines sont placées
+                      solutions.append(grille[:])  # Copie la grille
+                      return
+                    for colonne in range(8):
+                      if est_valide(grille, ligne, colonne):
+                        grille[
+                            ligne] = colonne  # Place la reine à la colonne valide de la ligne
+                        placer_reines(grille, ligne + 1)
+                
+                  placer_reines(
+                      [0] * 8, 0
+                  )  # Initialise une grille vide de 8x8 en commençant par la première ligne
+                
+                  toutes_solutions = []
+                  for solution in solutions:
+                    toutes_solutions.append(solution)
+                    for i in range(7):
+                      nouvelle_solution = [
+                          solution[(j + 1) % 8] for j in range(8)
+                      ]  # Effectue une rotation sur une solution à partir de i
+                      toutes_solutions.append(nouvelle_solution)
+                      nouvelle_solution = [
+                          7 - x for x in nouvelle_solution
+                      ]  # Effectue une réflexion sur une solution à partir de x
+                      toutes_solutions.append(nouvelle_solution)
+                
+                  return toutes_solutions
                 </code></pre>
 
                 <h4>Lien vers le projet complet</h4>
                 <p>
-                    <a class="site-link" href="https://github.com/votre-utilisateur/eight-queens" target="_blank">Voir le projet sur GitHub</a>
+                    <a class="site-link" href="https://github.com/AdrienPerou1/eight-queens_solver" target="_blank">Voir le projet sur GitHub</a>
                 </p>
             </div>
         </section>
