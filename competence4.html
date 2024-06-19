@@ -52,32 +52,8 @@
                     <li>Implémentation du modèle de données en PostgreSQL</li>
                 </ul>
 
-                <h4>Exemple de script SQL pour la création des tables</h4>
-                <pre><code>
-                    create table _ressources(
-                        code_R varchar(2) primary key,
-                        lib_R varchar(50) not null,
-                        nb_h_CM_PN numeric(3),
-                        nb_h_TD_PN numeric(3),
-                        nb_h_TP_PN numeric(3)
-                      );
-                      
-                      create table _SAE(
-                        code_SAE numeric(2) primary key,
-                        lib_sae varchar(50) not null,
-                        nb_h_TD_enc numeric(3),
-                        nb_h_TD_projet_autonomie numeric(3)
-                      );
-                      
-                      create table _comprend_R(
-                        code_UE varchar(2),
-                        code_SAE numeric(2),
-                        nb_h_TD_C numeric(3),
-                        nb_h_TP_C numeric(3),
-                        constraint _comprend_R_fk1 foreign key (code_UE) references _UE(code_UE),
-                        constraint _comprend_R_fk2 foreign key (code_SAE) references _SAE(code_SAE)
-                      );
-                </code></pre>
+                <h3>Représentation</h3>
+            <img src="images/SAE 1.04.png" alt="Représentation du Sudoku en C" class="code-example">
 
                 <h4>Lien vers le projet complet</h4>
                 <p>
@@ -106,32 +82,8 @@
                     <li>Utilisation de Python pour analyser les données et générer des statistiques</li>
                 </ul>
 
-                <h4>Exemple de script SQL pour le peuplement des tables</h4>
-                <pre><code>
-                    -- Ajouter les données dans la table _etablissement
-                    delete from _etablissement;
-                    INSERT INTO _etablissement (uai, nom_etablissement, secteur, code_postal, lattitude, longitude, code_insee_de_la_commune, nom_de_la_commune, code_academie, code_nature)
-                      SELECT DISTINCT uai, nom_etablissement, statut_public_prive, code_postal, latitude, longitude, code_commune, nom_commune, code_academie, code_nature
-                      FROM _temp_fr_en_etablissements_ep
-                      WHERE (uai, nom_etablissement, statut_public_prive, code_postal, latitude, longitude, code_commune, nom_commune, code_academie, code_nature) NOT IN
-                           (SELECT uai, nom_etablissement, secteur, code_postal, lattitude, longitude, code_insee_de_la_commune, nom_de_la_commune, code_academie, code_nature FROM _etablissement)
-                      AND (uai, nom_etablissement, statut_public_prive, code_postal, latitude, longitude, code_commune, nom_commune, code_academie, code_nature) IS NOT NULL;
-                    
-                    
-                </code></pre>
-
-                <h4>Exemple de script Python pour l'analyse</h4>
-                <pre><code>
-                    CollegeAr_CR = centre_reduire(CollegeAr)
-
-                    X = np.delete(CollegeAr_CR, 1, axis=1)
-                    Y = CollegeAr_CR[:, 1]
-                    
-                    # Régression linéaire multiple
-                    linear_regression = LinearRegression()
-                    linear_regression.fit(X, Y)
-                    a = linear_regression.coef_
-                </code></pre>
+                <h3>Représentation</h3>
+                <embed src="images/rapport sae204.pdf" type="application/pdf" width="100%" height="500px" />
 
                 <h4>Lien vers le projet complet</h4>
                 <p>
