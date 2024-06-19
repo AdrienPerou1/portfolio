@@ -23,11 +23,24 @@
         <section id="cv">
             <h2>Mon CV</h2>
             <embed src="cv_PEROU_ADRIEN.pdf" type="application/pdf" width="100%" height="500px" />
-            <p><a class="site-link" href="cv_PEROU_ADRIEN.pdf" download="cv_PEROU_ADRIEN.pdf">Télécharger mon CV en PDF</a></p>
+            <p><a class="site-link" href="cv_PEROU_ADRIEN.pdf" download="cv_PEROU_ADRIEN.pdf" onclick="forceDownload()">Télécharger mon CV en PDF</a></p>
+        
         </section>
     </main>
     <footer>
         <p>&copy; 2024 Pérou Adrien. Tous droits réservés.</p>
     </footer>
+
+    <script>
+        function forceDownload() {
+            var link = document.createElement('a');
+            link.href = 'cv_PEROU_ADRIEN.pdf';
+            link.download = 'cv_PEROU_ADRIEN.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+
 </body>
 </html>
