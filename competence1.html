@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class = "nav-competence">
+    <nav class="nav-competence">
         <ul>
             <li><a href="index.html">Accueil</a></li>
             <li><a href="diplomes.html">Diplômes</a></li>
@@ -40,80 +40,8 @@
                 <li>Utilisation de la bibliothèque standard pour la gestion des entrées/sorties</li>
             </ul>
 
-            <h3>Exemple de code</h3>
-            <pre>
-<code>
-
-    /**
-    *
-    * \fn dansBloc(tGrille g, int debutLigneBloc, int debutColonneBloc, int valeur)
-    *
-    * \brief Fonction qui indique si la valeur est dans le bloc.
-    *
-    * \param g : La grille du Sudoku
-    * \param debutLigneBloc : Première ligne du bloc
-    * \param debutColonneBloc : Première colonne du bloc
-    * \param valeur : Valeur à regarder
-    *
-    * \return true si la valeur est dans le bloc, false sinon.
-    *
-    * Permet de savoir si la valeur est positionné dans le bloc.
-    *
-    */
-    
-    bool dansBloc(tGrille g, int debutLigneBloc, int debutColonneBloc, int valeur) {
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                if (g[debutLigneBloc + i][debutColonneBloc + j] == valeur) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-    
-    /**
-    *
-    * \fn possible(tGrille g, int ligne, int colonne, int valeur)
-    *
-    * \brief Fonction qui indique si la valeur est positionnable.
-    *
-    * \param g : La grille du Sudoku
-    * \param debutLigneBloc : ligne de la valeur à insérer
-    * \param debutColonneBloc : colonne de la valeur à insérer
-    * \param valeur : Valeur à regarder
-    *
-    * \return true si la valeur est possible, false sinon.
-    *
-    * Indique si la valeur n'est pas déjà positionné dans la ligne, la colonne et le bloc.
-    *
-    */
-    
-    bool possible(tGrille g, int ligne, int colonne, int valeur) {
-        for (int i = 0; i < TAILLE; i++) {
-            if (g[ligne][i] == valeur)  //Vérifie si la ligne possède déjà la valeur
-            {
-                return false;
-            }
-        }
-        for (int j = 0; j < TAILLE; j++) {
-            if (g[j][colonne] == valeur) //Vérifie si la colonne possède déjà la valeur
-            {
-                return false;
-            }
-        }
-    
-        int debutLigneBloc = (ligne / N) * N; //Permet de savoir dans quel bloc est la première ligne grâce à la valeur du diviseur
-        int debutColonneBloc = (colonne / N) * N; //Permet de savoir dans quel bloc est la première colonne grâce à la valeur du diviseur
-    
-    /**
-     * \see La fonction dansBloc
-    */
-        return !dansBloc(g, debutLigneBloc, debutColonneBloc, valeur); 
-    }
-...
-</code>
-            </pre>
+            <h3>Représentation</h3>
+            <img src="images/sudoku.png" alt="Représentation du Sudoku en C" class="code-example">
 
             <h3>Lien vers le projet complet</h3>
             <p>
