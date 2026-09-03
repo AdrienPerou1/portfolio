@@ -1,0 +1,260 @@
+[
+  {
+    "id": "muse-recommandation",
+    "title": "Système de recommandation musicale",
+    "description": "Analyse de données et recommandation intelligente basée sur un dataset de +109k musiques.",
+    "detailedDescription": "Ce projet se concentre sur l'analyse massive de données musicales (+109k titres) et la mise en œuvre d'un moteur de recommandation performant. Après une phase d'analyse exploratoire avec Python (Pandas, Numpy) et une modélisation rigoureuse de la base de données PostgreSQL, j'ai développé un système hybride. Il utilise BERT pour traiter l'historique utilisateur, couplé à un modèle GRU (Gated Recurrent Unit) et à l'algorithme des K-plus-proches-voisins (K-NN) avec similarité cosinus pour recommander 5 musiques personnalisées.",
+    "keyFeatures": [
+      "Analyse exploratoire de données (+109k musiques)",
+      "Modèle de recommandation GRU & BERT",
+      "Algorithme K-NN avec similarité cosinus",
+      "Base de données PostgreSQL optimisée"
+    ],
+    "whatILearned": "Ce projet m'a permis de manipuler des volumes de données importants et d'appliquer des techniques avancées de Deep Learning (GRU, BERT) au domaine de la recommandation. J'ai approfondi ma maîtrise de l'écosystème Data Science en Python et appris à optimiser des requêtes sur une base PostgreSQL conséquente.",
+    "codeSnippet": null,
+    "technologies": [
+      "Python",
+      "Pandas",
+      "Numpy",
+      "PostgreSQL",
+      "BERT",
+      "GRU",
+      "K-NN"
+    ],
+    "image": "images/thumbnails/muse_tn.png",
+    "thumbnail": "images/thumbnails/muse_tn.png",
+    "screenshot": "images/thumbnails/muse_tn.png",
+    "github": ""
+  },
+  {
+    "id": "sql-python-analyse",
+    "title": "Création de tables SQL et analyse avec Python",
+    "description": "Création de tables SQL à partir d'un diagramme UML, le peuplement des tables et l'analyse des statistiques avec Python.",
+    "detailedDescription": "Ce projet était la suite du projet UML/PostgreSQL. Après avoir créé la base de données, je l'ai peuplée avec des données. Ensuite, j'ai utilisé Python avec des bibliothèques comme 'psycopg2' et 'pandas' pour me connecter à la base de données, extraire des données et effectuer des analyses statistiques.",
+    "keyFeatures": [
+      "Création et peuplement de tables SQL",
+      "Connexion à PostgreSQL avec Python",
+      "Analyse de données avec Pandas",
+      "Visualisation de données (optionnel)"
+    ],
+    "whatILearned": "J'ai appris à intégrer Python avec une base de données SQL pour effectuer des analyses de données. J'ai découvert la puissance de la bibliothèque Pandas pour la manipulation et l'analyse de données.",
+    "codeSnippet": null,
+    "technologies": [
+      "PostgreSQL",
+      "Python"
+    ],
+    "image": "images/thumbnails/sql_python_tn.png",
+    "thumbnail": "images/thumbnails/sql_python_tn.png",
+    "screenshot": "images/thumbnails/sql_python_tn.png",
+    "github": "https://github.com/AdrienPerou1/sql-analysis-python"
+  },
+  {
+    "id": "beks-informatique",
+    "title": "Bek's Informatique",
+    "description": "Application web complète pour Bek's Informatique : vitrine commerciale et gestion interne des rendez-vous.",
+    "detailedDescription": "Ce projet, réalisé lors de mon stage de BUT2, consistait à développer une application web complète pour l'entreprise Bek's Informatique. L'application répond à un double objectif : servir de vitrine commerciale pour présenter les services et produits de l'entreprise, et fonctionner comme un outil de gestion interne pour automatiser la prise de rendez-vous. Pour ce faire, j'ai mis en place une architecture découplée moderne, avec une interface utilisateur (frontend) développée en React JS qui communique via une API RESTful, développée en PHP natif, avec une base de données PostgreSQL.",
+    "keyFeatures": [
+      "Architecture Découplée Full-Stack (React JS / API PHP)",
+      "API RESTful Complète (CRUD produits et rendez-vous)",
+      "Panneau d'Administration Sécurisé",
+      "Notifications Automatisées avec PHPMailer",
+      "Base de Données Avancée (Triggers, pg_cron)"
+    ],
+    "whatILearned": "Ce projet a été une expérience de développement full-stack très complète. J'ai pu monter en compétence de manière significative sur React JS, en maîtrisant des concepts fondamentaux comme les Hooks et le JSX. Côté backend, j'ai appris à concevoir et à structurer une API RESTful de A à Z en PHP natif, en gérant le routage et la sécurité. Enfin, mener ce projet en autonomie m'a permis de développer de solides compétences en gestion de projet.",
+    "codeSnippet": null,
+    "technologies": [
+      "React",
+      "PHP",
+      "PostgreSQL",
+      "API REST",
+      "Composer"
+    ],
+    "image": "images/screenshots/beksinfo1.png",
+    "thumbnail": "images/thumbnails/beksinfo_tn.png",
+    "screenshot": "images/screenshots/beksinfo2.png",
+    "github": ""
+  },
+  {
+    "id": "tripenarvor",
+    "title": "TripEnArvor",
+    "description": "Plateforme type Tripadvisor avec profils membres/pros, offres (activités, restaurants), avis, notes, réponses aux avis.",
+    "detailedDescription": "TripEnArvor est un projet de plateforme de type Tripadvisor que j'ai développé en équipe. La plateforme permet aux membres de trouver des activités et des restaurants, de laisser des avis et des notes. Les professionnels peuvent également créer des profils et gérer leurs offres. Le projet comprend des fonctionnalités avancées comme des profils publics/privés, un système de facturation, des offres premium, une carte interactive, etc.",
+    "keyFeatures": [
+      "Plateforme de type Tripadvisor",
+      "Profils membres et professionnels",
+      "Système d'avis et de notes",
+      "Facturation et offres premium",
+      "Carte interactive"
+    ],
+    "whatILearned": "Ce projet a été une expérience très complète de développement web en équipe. J'ai travaillé sur tous les aspects du projet, de la conception de la base de données à l'intégration du front-end. J'ai appris à utiliser PHP et pgSQL pour construire une application web complexe.",
+    "codeSnippet": null,
+    "technologies": [
+      "PHP",
+      "HTML",
+      "CSS",
+      "PostgreSQL"
+    ],
+    "image": "images/screenshots/tripenarvor.png",
+    "thumbnail": "images/thumbnails/tripenarvor_tn.png",
+    "screenshot": "images/screenshots/tripenarvor.png",
+    "github": ""
+  },
+  {
+    "id": "solveur-huit-reines",
+    "title": "Solveur du problème des huit reines",
+    "description": "Développer un solveur automatique du problème des huit reines en Python.",
+    "detailedDescription": "Le problème des huit reines est un problème classique en informatique. L'objectif est de placer huit reines sur un échiquier de 8x8 sans qu'aucune d'entre elles ne puisse en menacer une autre. J'ai développé un solveur en Python qui utilise un algorithme de backtracking pour trouver toutes les solutions possibles.",
+    "keyFeatures": [
+      "Solveur pour le problème des huit reines",
+      "Algorithme de backtracking en Python",
+      "Affichage des solutions trouvées"
+    ],
+    "whatILearned": "Ce projet a été une excellente introduction à la programmation en Python et à l'application d'algorithmes de recherche. J'ai appris à penser de manière récursive et à résoudre des problèmes combinatoires.",
+    "codeSnippet": null,
+    "technologies": [
+      "Python"
+    ],
+    "image": "images/screenshots/solveur_8_reines.png",
+    "thumbnail": "images/thumbnails/solveur_8_reines_tn.png",
+    "screenshot": "images/screenshots/solveur_8_reines.png",
+    "github": "https://github.com/AdrienPerou1/eight-queens_solver"
+  },
+  {
+    "id": "sudoku-c",
+    "title": "Développement d'un Sudoku en C",
+    "description": "Développer un programme de Sudoku en langage C. Le programme permet de charger, afficher, et résoudre une grille de Sudoku.",
+    "detailedDescription": "Ce projet a été réalisé dans le cadre de ma formation universitaire. L'objectif était de développer une application en C capable de gérer toutes les fonctionnalités d'un jeu de Sudoku classique. Cela inclut le chargement d'une grille à partir d'un fichier, l'affichage de la grille dans le terminal, la possibilité pour l'utilisateur de jouer, et enfin, un solveur automatique basé sur un algorithme de backtracking.",
+    "keyFeatures": [
+      "Chargement et sauvegarde de grilles de Sudoku.",
+      "Interface en ligne de commande pour jouer.",
+      "Solveur automatique avec backtracking.",
+      "Génération de documentation avec Doxygen."
+    ],
+    "codeSnippet": {
+      "language": "c",
+      "code": "bool possible(tGrille g, int ligne, int colonne, int valeur) {\n    for (int i = 0; i < TAILLE; i++) {\n        if (g[ligne][i] == valeur) //Vérifie si la ligne possède déjà la valeur\n        {\n            return false;\n        }\n    }\n    for (int j = 0; j < TAILLE; j++) {\n        if (g[j][colonne] == valeur) //Vérifie si la colonne possède déjà la valeur\n        {\n            return false;\n        }\n    }\n    int debutLigneBloc = (ligne / N) * N; //Permet de savoir dans quel bloc est la première ligne grâce à la valeur du diviseur\n    int debutColonneBloc = (colonne / N) * N; //Permet de savoir dans quel bloc est la première colonne grâce à la valeur du diviseur\n    /**\n     * \\see La fonction dansBloc\n     */\n    return !dansBloc(g, debutLigneBloc, debutColonneBloc, valeur);\n}"
+    },
+    "whatILearned": "Ce projet m'a permis de consolider mes compétences en langage C, notamment sur la manipulation de tableaux et de pointeurs. J'ai également appris à implémenter un algorithme de backtracking complexe pour le solveur automatique. Enfin, j'ai découvert l'importance de la documentation de code avec des outils comme Doxygen.",
+    "technologies": [
+      "C",
+      "Doxygen"
+    ],
+    "image": "images/screenshots/sudoku.png",
+    "thumbnail": "images/thumbnails/sudoku_tn.png",
+    "screenshot": "images/screenshots/sudoku.png",
+    "github": "https://github.com/AdrienPerou1/sudoku"
+  },
+  {
+    "id": "solveur-sudoku",
+    "title": "Solveur de Sudoku",
+    "description": "Développer un solveur de Sudoku en langage C.",
+    "detailedDescription": "Ce projet est une extension du premier projet de Sudoku. L'objectif principal était de se concentrer sur l'algorithme de résolution automatique. J'ai implémenté un solveur de Sudoku en C en utilisant un algorithme de backtracking pour trouver la solution d'une grille donnée.",
+    "keyFeatures": [
+      "Solveur de Sudoku en C",
+      "Algorithme de backtracking",
+      "Optimisation de la recherche de solutions"
+    ],
+    "whatILearned": "Ce projet m'a permis d'approfondir mes connaissances en algorithmique, en particulier sur les algorithmes de recherche et d'optimisation. J'ai également amélioré ma capacité à déboguer et à tester des programmes complexes en C.",
+    "codeSnippet": null,
+    "technologies": [
+      "C",
+      "Doxygen"
+    ],
+    "image": "images/screenshots/solveur_sudoku.png",
+    "thumbnail": "images/thumbnails/solveur_sudoku_tn.png.png",
+    "screenshot": "images/screenshots/solveur_sudoku.png",
+    "github": "https://github.com/AdrienPerou1/solveur_sudoku"
+  },
+  {
+    "id": "uml-postgresql",
+    "title": "Création d'un diagramme UML et base de données PostgreSQL",
+    "description": "Créer un diagramme de classe UML avec Visual Paradigm, puis à implémenter la base de données en PostgreSQL.",
+    "detailedDescription": "Ce projet était axé sur la modélisation de données. J'ai utilisé Visual Paradigm pour créer un diagramme de classes UML pour un programme de gestion de nations. Ensuite, j'ai traduit ce diagramme en une base de données PostgreSQL en utilisant SQL Workbench.",
+    "keyFeatures": [
+      "Modélisation de données avec UML",
+      "Création d'un diagramme de classes",
+      "Implémentation d'une base de données PostgreSQL",
+      "Utilisation de Visual Paradigm et SQL Workbench"
+    ],
+    "whatILearned": "J'ai appris les principes de la modélisation orientée objet avec UML et comment traduire un modèle conceptuel en une base de données relationnelle. J'ai également acquis de l'expérience avec PostgreSQL.",
+    "codeSnippet": null,
+    "technologies": [
+      "Visual Paradigm",
+      "PostgreSQL",
+      "SQL Workbench"
+    ],
+    "image": "images/screenshots/SAE 1.04.png",
+    "thumbnail": "images/thumbnails/uml_postgres_tn.png",
+    "screenshot": "images/screenshots/SAE 1.04.png",
+    "github": "https://github.com/AdrienPerou1/nation_program_diagram"
+  },
+  {
+    "id": "php-docker",
+    "title": "Automatisation de scripts PHP avec Docker",
+    "description": "Création d'un script PHP capable de transformer des fichiers Markdown en PDF, et automatisation avec Docker.",
+    "detailedDescription": "Ce projet consistait à créer un script PHP capable de convertir des fichiers Markdown en PDF. Pour faciliter le déploiement et l'exécution du script, j'ai créé une image Docker qui contient tout l'environnement nécessaire. Cela permet d'exécuter le script sur n'importe quelle machine sans avoir à installer PHP ou d'autres dépendances.",
+    "keyFeatures": [
+      "Conversion de Markdown en PDF",
+      "Script en PHP",
+      "Automatisation avec Docker",
+      "Image Docker portable"
+    ],
+    "whatILearned": "J'ai découvert la puissance de Docker pour l'automatisation et la portabilité des applications. J'ai également amélioré mes compétences en PHP et en scripting shell.",
+    "codeSnippet": null,
+    "technologies": [
+      "PHP",
+      "Docker"
+    ],
+    "image": "images/thumbnails/docker_php_tn.png",
+    "thumbnail": "images/thumbnails/docker_php_tn.png",
+    "screenshot": "images/thumbnails/docker_php_tn.png",
+    "github": "https://github.com/AdrienPerou1/markdown2pdf"
+  },
+  {
+    "id": "services-reseau",
+    "title": "Installation de services réseau",
+    "description": "Installer et configurer un serveur web avec une authentification sécurisé.",
+    "detailedDescription": "Dans ce projet, j'ai appris à installer et à configurer un serveur web complet sur une machine Linux. J'ai mis en place un serveur Apache, une base de données MySQL et PHP (LAMP). J'ai également sécurisé le serveur avec une authentification.",
+    "keyFeatures": [
+      "Installation d'un serveur LAMP",
+      "Configuration d'Apache, MySQL, PHP",
+      "Sécurisation du serveur",
+      "Déploiement d'un site web simple"
+    ],
+    "whatILearned": "Ce projet m'a donné une expérience pratique de l'administration système et de la configuration de services réseau. J'ai appris les bases de la sécurité des serveurs web.",
+    "codeSnippet": null,
+    "technologies": [
+      "Linux",
+      "Apache",
+      "MySQL",
+      "PHP"
+    ],
+    "image": "images/thumbnails/service_réseau_tn.png",
+    "thumbnail": "images/thumbnails/service_réseau_tn.png",
+    "screenshot": "images/thumbnails/service_réseau_tn.png",
+    "github": "https://github.com/AdrienPerou1/configuration_server_web"
+  },
+  {
+    "id": "jeu-rythme",
+    "title": "Application de suivi pour jeu de rythme",
+    "description": "Application web interactive qui permet aux utilisateurs de suivre et d'analyser leurs performances pour un jeu de rythme.",
+    "detailedDescription": "En tant que joueur de jeux de rythme, j'ai voulu créer une application pour suivre et analyser mes performances. Cette application web interactive permet aux utilisateurs d'enregistrer leurs scores, de voir leur progression et d'obtenir des statistiques détaillées. L'interface est conçue pour être rapide et facile à utiliser.",
+    "keyFeatures": [
+      "Suivi des performances pour les jeux de rythme",
+      "Enregistrement des scores",
+      "Visualisation de la progression",
+      "Statistiques détaillées"
+    ],
+    "whatILearned": "Ce projet m'a permis de combiner ma passion pour les jeux de rythme avec mes compétences en développement web. J'ai appris à créer une application web interactive et centrée sur l'utilisateur en utilisant HTML, CSS et JavaScript.",
+    "codeSnippet": null,
+    "technologies": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "image": "images/screenshots/creation_musique.png",
+    "thumbnail": "images/thumbnails/rythm_tracker_tn.png",
+    "screenshot": "images/screenshots/creation_musique.png",
+    "github": "https://github.com/AdrienPerou1/pb_register"
+  }
+]

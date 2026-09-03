@@ -1,0 +1,213 @@
+/* ========================================
+   PROJECT CARD - Glassmorphism & Glow
+   ======================================== */
+
+.project-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+
+.project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(232, 67, 59, 0.1);
+  transition: all var(--transition-base);
+
+  /* Initial animation state */
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.project-card.is-visible {
+  animation: cardReveal 0.6s ease-out forwards;
+}
+
+@keyframes cardReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover effect - glow follows mouse */
+.card-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y),
+      rgba(232, 67, 59, 0.15),
+      transparent 40%);
+  z-index: 1;
+}
+
+.project-card:hover .card-glow {
+  opacity: 1;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(232, 67, 59, 0.3);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(232, 67, 59, 0.1);
+}
+
+/* Image */
+.project-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.1);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg,
+      transparent 0%,
+      rgba(13, 9, 8, 0.3) 70%,
+      rgba(13, 9, 8, 0.8) 100%);
+  opacity: 0.7;
+  transition: opacity var(--transition-base);
+}
+
+.project-card:hover .image-overlay {
+  opacity: 0.9;
+}
+
+/* Content */
+.project-info {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.project-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  transition: color var(--transition-fast);
+}
+
+.project-card:hover .project-title {
+  color: var(--primary-color);
+}
+
+.project-description {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0 0 var(--space-md);
+  flex-grow: 1;
+
+  /* Truncate after 3 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Technologies */
+.project-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.project-tech-tag {
+  padding: var(--space-xs) var(--space-sm);
+  background: rgba(232, 67, 59, 0.1);
+  border: 1px solid rgba(232, 67, 59, 0.2);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--primary-color);
+  transition: all var(--transition-fast);
+}
+
+.project-tech-tag:hover {
+  background: rgba(232, 67, 59, 0.2);
+  border-color: var(--primary-color);
+}
+
+.project-tech-tag.more {
+  background: transparent;
+  color: var(--text-muted);
+}
+
+/* View more */
+.view-more {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-top: auto;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all var(--transition-base);
+}
+
+.project-card:hover .view-more {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.view-more svg {
+  transition: transform var(--transition-fast);
+}
+
+.project-card:hover .view-more svg {
+  transform: translateX(4px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .project-image-wrapper {
+    height: 180px;
+  }
+
+  .project-info {
+    padding: var(--space-md);
+  }
+
+  .view-more {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

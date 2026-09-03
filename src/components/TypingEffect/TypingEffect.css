@@ -1,0 +1,45 @@
+/* ========================================
+   TYPING EFFECT - Neon Glow
+   ======================================== */
+
+.typing-effect {
+  font-family: var(--font-display);
+  font-weight: 700;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 4px;
+  height: 0.9em;
+  margin-left: 4px;
+  background: var(--primary-color);
+  border-radius: 2px;
+  animation: cursorBlink 1s ease-in-out infinite;
+  box-shadow:
+    0 0 10px var(--primary-glow),
+    0 0 20px var(--primary-glow);
+  vertical-align: middle;
+}
+
+@keyframes cursorBlink {
+
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow:
+      0 0 10px var(--primary-glow),
+      0 0 20px var(--primary-glow);
+  }
+
+  50% {
+    opacity: 0.3;
+    box-shadow:
+      0 0 5px var(--primary-glow),
+      0 0 10px var(--primary-glow);
+  }
+}

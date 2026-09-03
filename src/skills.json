@@ -1,0 +1,102 @@
+[
+  {
+    "category": "Intelligence Artificielle & Mathématiques",
+    "description": "Analyse de données, modélisation mathématique et algorithmique avancée.",
+    "subSkills": [
+      {
+        "name": "Machine Learning",
+        "description": "Apprentissage non supervisé (ACP, AFC), supervisé (K-NN, Arbres de décision)."
+      },
+      {
+        "name": "Optimisation & Algorithmique",
+        "description": "Descente de gradient (1D/2D), Graphes (BFS, DFS, Dijkstra, A*, Glouton)."
+      },
+      {
+        "name": "Cryptographie",
+        "description": "Étude et implémentation de courbes elliptiques sur corps finis (Fp)."
+      }
+    ]
+  },
+  {
+    "category": "Développement Système & Logiciel",
+    "description": "Maîtrise de la programmation bas-niveau et architecture orientée objet.",
+    "subSkills": [
+      {
+        "name": "Langage C & Système",
+        "description": "Manipulation de pointeurs, gestion de mémoire (malloc/free), appels système (rmdir, errno)."
+      },
+      {
+        "name": "Java & Design Patterns",
+        "description": "Conception robuste avec patrons Observateur, Stratégie et Composite."
+      },
+      {
+        "name": "PHP & POO Avancée",
+        "description": "Méthodes magiques (__construct, __destruct), encapsulation et getters/setters."
+      }
+    ]
+  },
+  {
+    "category": "Bases de données",
+    "description": "Gestion complexe des données, de la théorie à l'implémentation NoSQL.",
+    "subSkills": [
+      {
+        "name": "Relationnel & ACID",
+        "description": "PostgreSQL, gestion des transactions et respect des propriétés ACID."
+      },
+      {
+        "name": "NoSQL & Caching",
+        "description": "Stockage distribué avec MongoDB, Cassandra et stratégies de Caching."
+      },
+      {
+        "name": "Théorie & Modélisation",
+        "description": "Dépendances fonctionnelles, UML (Visual Paradigm), Schémas MCD/MLD."
+      }
+    ]
+  },
+  {
+    "category": "Web & Data Visualization",
+    "description": "Création d'interfaces dynamiques et visualisation de données complexes.",
+    "subSkills": [
+      {
+        "name": "Frontend & Design",
+        "description": "React JS, d3.js pour la visualisation, CSS (Flexbox) et JavaScript ES6+."
+      },
+      {
+        "name": "Backend Frameworks",
+        "description": "Spring Boot (Java), PHP natif et architecture d'API RESTful."
+      }
+    ]
+  },
+  {
+    "category": "Réseau & Système",
+    "description": "Protocoles de communication et administration système.",
+    "subSkills": [
+      {
+        "name": "Réseaux & Sockets",
+        "description": "TCP/IP, HTTP, programmation de sockets et Cisco Packet Tracer."
+      },
+      {
+        "name": "DevOps & Linux",
+        "description": "Conteneurisation (Docker), Git/GitHub et administration Linux avancée."
+      }
+    ]
+  },
+  {
+    "category": "Management & Analyse de SI",
+    "description": "Conduite de projets et étude des flux au sein de l'entreprise.",
+    "subSkills": [
+      {
+        "name": "Analyse de SI",
+        "description": "Étude des flux d'information/physiques, processus métier et systèmes de pilotage."
+      },
+      {
+        "name": "Gestion de Projet",
+        "description": "Cahier des charges, méthodologies Agile (Scrumban) et planification."
+      },
+      {
+        "name": "Droit Informatique",
+        "description": "Mise en conformité RGPD et droit de la propriété intellectuelle."
+      }
+    ]
+  }
+]
