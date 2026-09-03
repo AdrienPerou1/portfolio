@@ -5,24 +5,26 @@
   <meta charset="utf-8" />
   <link rel="icon" type="image/png" href="%PUBLIC_URL%/logo192.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#faf8f5" />
+  <meta name="theme-color" content="#f2f4f6" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#14161a" media="(prefers-color-scheme: dark)" />
   <meta name="description"
-    content="Portfolio d'Adrien Pérou - Étudiant en 3ème année de BUT Informatique à Lannion, spécialisé en Data & IA. Découvrez mes projets et compétences." />
+    content="Portfolio d'Adrien Pérou — développeur Data & IA et full-stack. Formé en BUT Informatique à l'IUT de Lannion, parcours Données, structuration et analyse." />
   <meta name="keywords"
-    content="Adrien Pérou, développeur, portfolio, BUT Informatique, Data, IA, Lannion, React, PHP, Python, Java" />
+    content="Adrien Pérou, développeur, portfolio, BUT Informatique, Data, IA, Lannion, React, PHP, Python, Java, PostgreSQL" />
   <meta name="author" content="Adrien Pérou" />
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Adrien Pérou | Développeur Data & IA" />
   <meta property="og:description"
-    content="Portfolio d'Adrien Pérou - Étudiant en BUT Informatique spécialisé Data & IA" />
+    content="Projets en data, IA, bases de données et développement full-stack." />
+  <meta property="og:url" content="https://adrienperou1.github.io/portfolio/" />
 
-  <!-- Fonts -->
+  <!-- Polices -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
     rel="stylesheet">
 
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
@@ -30,12 +32,32 @@
 
   <title>Adrien Pérou | Développeur Data & IA</title>
 
+  <script>
+    /* Applique le thème avant le premier rendu, pour éviter tout flash. */
+    (function () {
+      try {
+        var stored = localStorage.getItem('theme');
+        var theme = (stored === 'light' || stored === 'dark')
+          ? stored
+          : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+
   <style>
-    /* Critical CSS for immediate render */
+    /* CSS critique, avant le chargement de index.css */
     body {
-      background: #faf8f5;
-      color: #1c1a17;
       margin: 0;
+      background: #f2f4f6;
+      color: #14171a;
+    }
+
+    html[data-theme="dark"] body {
+      background: #14161a;
+      color: #edeff2;
     }
   </style>
 </head>

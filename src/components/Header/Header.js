@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
 import './Header.css';
+
+const NAV_LINKS = [
+  { path: '/', label: 'Accueil' },
+  { path: '/projects', label: 'Projets' },
+  { path: '/skills', label: 'Compétences' },
+  { path: '/cv', label: 'Parcours' },
+];
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -8,59 +16,54 @@ function Header() {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 24);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location]);
-
-  const navLinks = [
-    { path: '/', label: 'Accueil' },
-    { path: '/projects', label: 'Projets' },
-    { path: '/skills', label: 'Compétences' },
-    { path: '/cv', label: 'CV' },
-  ];
 
   return (
     <header className={`app-header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
         <Link to="/" className="logo">
-          <span className="logo-text">AP</span>
-          <span className="logo-dot"></span>
+          <span className="logo-mark" aria-hidden="true" />
+          <span className="logo-text">Adrien Pérou</span>
         </Link>
 
-        <nav className={`nav-menu ${isMobileMenuOpen ? 'open' : ''}`}>
+        <nav className={`nav-menu ${isMobileMenuOpen ? 'open' : ''}`} aria-label="Navigation principale">
           <ul>
-            {navLinks.map((link, index) => (
-              <li key={link.path} style={{ animationDelay: `${index * 0.1}s` }}>
+            {NAV_LINKS.map((link) => (
+              <li key={link.path}>
                 <Link
                   to={link.path}
                   className={location.pathname === link.path ? 'active' : ''}
+                  aria-current={location.pathname === link.path ? 'page' : undefined}
                 >
-                  <span className="nav-link-text">{link.label}</span>
-                  <span className="nav-link-underline"></span>
+                  {link.label}
                 </Link>
               </li>
             ))}
           </ul>
         </nav>
 
-        <button
-          className={`mobile-menu-toggle ${isMobileMenuOpen ? 'open' : ''}`}
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          <span className="hamburger-line"></span>
-          <span className="hamburger-line"></span>
-          <span className="hamburger-line"></span>
-        </button>
+        <div className="header-actions">
+          <ThemeToggle />
+
+          <button
+            type="button"
+            className={`mobile-menu-toggle ${isMobileMenuOpen ? 'open' : ''}`}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+            aria-expanded={isMobileMenuOpen}
+          >
+            <span className="hamburger-line" />
+            <span className="hamburger-line" />
+            <span className="hamburger-line" />
+          </button>
+        </div>
       </div>
     </header>
   );

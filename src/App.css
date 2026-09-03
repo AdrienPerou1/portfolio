@@ -1,27 +1,13 @@
 .app {
-    position: relative;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-/* Page transitions */
 main {
-    position: relative;
-    z-index: 1;
+  flex-grow: 1;
 }
 
-/* Smooth page content */
 main>* {
-    animation: pageEnter 0.6s ease-out;
-}
-
-@keyframes pageEnter {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  animation: riseIn 0.35s ease-out;
 }

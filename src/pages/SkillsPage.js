@@ -1,140 +1,104 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import skillsData from '../skills.json';
 import './SkillsPage.css';
 
+// Codes courts, dans la même langue visuelle que la fiche du hero.
+const CODES = {
+  'Intelligence Artificielle & Mathématiques': 'AI',
+  'Développement Système & Logiciel': 'SYS',
+  'Bases de données': 'DB',
+  'Web & Data Visualization': 'WEB',
+  'Réseau & Système': 'NET',
+  'Management & Analyse de SI': 'PM',
+};
+
+const TOOLS = [
+  'Git', 'Docker', 'Linux', 'PostgreSQL', 'React', 'Agile/Scrumban', 'Spring Boot',
+  'd3.js', 'Cisco', 'ACID', 'Python/Maths', 'Java POO', 'MongoDB', 'Cassandra',
+];
+
 function SkillsPage() {
-  const [expandedCategory, setExpandedCategory] = useState(null);
-  const [visibleCards, setVisibleCards] = useState([]);
-
-  const toggleCategory = (category) => {
-    setExpandedCategory(expandedCategory === category ? null : category);
-  };
-
-  // Intersection observer for animations
-  const observerRef = useRef(null);
-
-  useEffect(() => {
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisibleCards((prev) => [...prev, entry.target.dataset.index]);
-            observerRef.current.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    return () => observerRef.current?.disconnect();
-  }, []);
-
-  const setCardRef = (element, index) => {
-    if (element && observerRef.current) {
-      element.dataset.index = index;
-      observerRef.current.observe(element);
-    }
-  };
-
-  // Tech icons mapping (using emoji as fallback)
-  const iconMap = {
-    'Intelligence Artificielle & Mathématiques': '🧠',
-    'Développement Système & Logiciel': '💻',
-    'Bases de données': '🗄️',
-    'Web & Data Visualization': '📈',
-    'Réseau & Système': '🌐',
-    'Management & Analyse de SI': '📋',
-  };
+  const [expanded, setExpanded] = useState(null);
 
   return (
     <div className="skills-page">
-      {/* Hero Section */}
-      <section className="skills-hero">
-        <div className="hero-content">
-          <span className="section-label">Expertise</span>
-          <h1>Mes Compétences</h1>
-          <p className="hero-subtitle">
-            Technologies et outils que je maîtrise, développés au fil de ma formation et de mes projets personnels.
+      <header className="page-header">
+        <div className="container">
+          <span className="eyebrow">Compétences</span>
+          <h1>Ce que je sais faire</h1>
+          <p className="lede">
+            Six domaines construits au fil du BUT et des projets, de la théorie des bases
+            de données à l'administration réseau.
           </p>
         </div>
-      </section>
+      </header>
 
-      {/* Skills Grid */}
       <section className="skills-section">
         <div className="container">
-          <div className="skills-container">
-            {skillsData.map((skillCategory, index) => (
-              <article
-                key={index}
-                ref={(el) => setCardRef(el, index)}
-                className={`skill-category ${visibleCards.includes(String(index)) ? 'is-visible' : ''} ${expandedCategory === skillCategory.category ? 'expanded' : ''}`}
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                {/* Card glow effect */}
-                <div className="card-border-glow"></div>
+          <div className="skills-list">
+            {skillsData.map((category) => {
+              const isOpen = expanded === category.category;
+              const hasSubSkills = category.subSkills.length > 0;
 
-                {/* Header */}
-                <div
-                  className="skill-category-header"
-                  onClick={() => skillCategory.subSkills.length > 0 && toggleCategory(skillCategory.category)}
+              return (
+                <article
+                  key={category.category}
+                  className={`skill-category ${isOpen ? 'expanded' : ''}`}
                 >
-                  <div className="skill-icon-wrapper">
-                    <span className="skill-icon">{iconMap[skillCategory.category] || '💡'}</span>
-                  </div>
-                  <div className="skill-header-content">
-                    <h2>{skillCategory.category}</h2>
-                    {skillCategory.subSkills.length > 0 && (
-                      <span className="skill-count">{skillCategory.subSkills.length} sous-compétences</span>
-                    )}
-                  </div>
-                  {skillCategory.subSkills.length > 0 && (
-                    <div className="expand-icon">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M6 9l6 6 6-6" />
-                      </svg>
+                  <h2 className="skill-heading">
+                    <button
+                      type="button"
+                      className="skill-trigger"
+                      onClick={() => setExpanded(isOpen ? null : category.category)}
+                      aria-expanded={isOpen}
+                      disabled={!hasSubSkills}
+                    >
+                      <span className="skill-code" aria-hidden="true">
+                        {CODES[category.category] || '··'}
+                      </span>
+
+                      <span className="skill-heading-text">
+                        <span className="skill-name">{category.category}</span>
+                        <span className="skill-desc">{category.description}</span>
+                      </span>
+
+                      {hasSubSkills && (
+                        <span className="skill-chevron" aria-hidden="true">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" strokeWidth="2" strokeLinecap="round"
+                            strokeLinejoin="round">
+                            <path d="M6 9l6 6 6-6" />
+                          </svg>
+                        </span>
+                      )}
+                    </button>
+                  </h2>
+
+                  {hasSubSkills && isOpen && (
+                    <div className="sub-skills">
+                      {category.subSkills.map((sub) => (
+                        <div className="sub-skill" key={sub.name}>
+                          <h3>{sub.name}</h3>
+                          <p>{sub.description}</p>
+                        </div>
+                      ))}
                     </div>
                   )}
-                </div>
-
-                {/* Description */}
-                <p className="skill-category-description">{skillCategory.description}</p>
-
-                {/* Sub-skills */}
-                {skillCategory.subSkills.length > 0 && (
-                  <div className="sub-skills-container">
-                    {skillCategory.subSkills.map((subSkill, subIndex) => (
-                      <div
-                        key={subIndex}
-                        className="sub-skill"
-                        style={{ animationDelay: `${subIndex * 0.05}s` }}
-                      >
-                        <h3>{subSkill.name}</h3>
-                        <p>{subSkill.description}</p>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </article>
-            ))}
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Tools section */}
       <section className="tools-section">
         <div className="container">
-          <h2 className="tools-title">Outils & Technologies</h2>
-          <div className="tools-grid">
-            {['Git', 'Docker', 'Linux', 'PostgreSQL', 'React', 'Agile/Scrumban', 'Spring Boot', 'd3.js', 'Cisco', 'ACID', 'Python/Maths', 'Java POO', 'MongoDB', 'Cassandra'].map((tool, index) => (
-              <div
-                key={tool}
-                className="tool-item"
-                style={{ animationDelay: `${index * 0.05}s` }}
-              >
-                {tool}
-              </div>
+          <h2 className="tools-title">Outils au quotidien</h2>
+          <ul className="tools-grid">
+            {TOOLS.map((tool) => (
+              <li key={tool} className="mono-tag">{tool}</li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
     </div>

@@ -1,14 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import assetUrl from '../../assetUrl';
 import './ProjectCard.css';
 
 function ProjectCard({ project, index }) {
   const [isVisible, setIsVisible] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  // Le repli passe par un état : muter `src` sur le nœud DOM depuis onError
+  // repart en boucle, React réappliquant la prop au rendu suivant.
+  const [imageSrc, setImageSrc] = useState(project.thumbnail || project.image);
   const cardRef = useRef(null);
 
   useEffect(() => {
     const currentRef = cardRef.current;
+    if (!currentRef) return undefined;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -16,88 +21,49 @@ function ProjectCard({ project, index }) {
           observer.unobserve(entry.target);
         }
       },
-      {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1,
-      }
+      { threshold: 0.1 }
     );
 
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
+    observer.observe(currentRef);
+    return () => observer.disconnect();
   }, []);
 
-  const handleMouseMove = (e) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    setMousePosition({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  };
+  const indexLabel = String(index + 1).padStart(2, '0');
 
   return (
-    <Link to={`/project/${project.id}`} className="project-card-link">
-      <article
-        ref={cardRef}
-        className={`project-card ${isVisible ? 'is-visible' : ''}`}
-        style={{
-          animationDelay: `${index * 0.1}s`,
-          '--mouse-x': `${mousePosition.x}px`,
-          '--mouse-y': `${mousePosition.y}px`,
-        }}
-        onMouseMove={handleMouseMove}
-      >
-        {/* Glow effect */}
-        <div className="card-glow"></div>
-
-        {/* Image */}
+    <article ref={cardRef} className={`project-card ${isVisible ? 'is-visible' : ''}`}>
+      <Link to={`/project/${project.id}`} className="project-card-link">
         <div className="project-image-wrapper">
           <img
-            src={`${project.thumbnail || project.image}`}
-            alt={project.title}
+            src={assetUrl(imageSrc)}
+            alt=""
             className="project-image"
             loading="lazy"
-            onError={(e) => {
-              e.target.onerror = null;
-              e.target.src = `${project.image}`;
+            onError={() => {
+              if (imageSrc !== project.image) setImageSrc(project.image);
             }}
           />
-          <div className="image-overlay"></div>
         </div>
 
-        {/* Content */}
         <div className="project-info">
-          <h3 className="project-title">{project.title}</h3>
+          <div className="project-heading">
+            <span className="project-index" aria-hidden="true">#{indexLabel}</span>
+            <h3 className="project-title">{project.title}</h3>
+          </div>
+
           <p className="project-description">{project.description}</p>
 
-          {/* Technologies */}
           <div className="project-technologies">
-            {project.technologies.slice(0, 4).map((tech, techIndex) => (
-              <span key={techIndex} className="project-tech-tag">{tech}</span>
+            {project.technologies.slice(0, 4).map((tech) => (
+              <span key={tech} className="mono-tag">{tech}</span>
             ))}
             {project.technologies.length > 4 && (
-              <span className="project-tech-tag more">+{project.technologies.length - 4}</span>
+              <span className="mono-tag">+{project.technologies.length - 4}</span>
             )}
           </div>
-
-          {/* View more indicator */}
-          <div className="view-more">
-            <span>Voir le projet</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </div>
         </div>
-      </article>
-    </Link>
+      </Link>
+    </article>
   );
 }
 
